@@ -8,39 +8,31 @@ local opts = {
           auto_trigger_ft = { "python", "lua", "golang" },
           keymap = {
             accept = "<A-a>",
-            prev = "<A-[>",
-            next = "<A-]>",
             dismiss = "<A-e>",
           },
         },
-        provider = "openai_fim_compatible",
-        n_completions = 1,
-        context_window = 512,
+        provider = "openai_compatible",
+        request_timeout = 2.5,
+        n_completions = 2,
+        throttle = 1500,
+        debounce = 600,
         provider_options = {
-          openai_fim_compatible = {
-            api_key = "TERM",
-            name = "Ollama",
-            end_point = "http://host.docker.internal:11434/v1/completions",
-            model = "qwen2.5-coder:3b",
+          openai_compatible = {
+            api_key = "OPENROUTER_API_KEY",
+            end_point = "https://openrouter.ai/api/v1/chat/completions",
+            model = "anthropic/claude-3.5-haiku",
+            name = "Openrouter",
             optional = {
               max_tokens = 56,
               top_p = 0.9,
+              provider = {
+                sort = "throughput",
+              },
             },
           },
         },
       })
     end,
-  },
-  {
-    "David-Kunz/gen.nvim",
-    keys = {
-      { "<leader>op", "<CMD>Gen<CR>", "Open AI panel" },
-    },
-    opts = {
-      model = "qwen2.5-coder:3b",
-      display_mode = "vertical-split",
-      host = "host.docker.internal",
-    },
   },
 }
 
