@@ -60,6 +60,6 @@ autodev launch   # build + up + attach
 
 ## 📝 Зависимости
 
-* [Ghostty](https://github.com/your-link)
-* [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
+* [Ghostty](https://ghostty.org)
+* [JetBrains Mono](https://www.jetbrains.com/lp/mono)
 * tmux, zsh, brew, docker, devcontainer/cli
