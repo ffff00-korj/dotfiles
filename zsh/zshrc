@@ -22,9 +22,6 @@ eval "$(pyenv init -)"
 # auto activate virtualenv, if .python-version or .venv exists
 eval "$(pyenv virtualenv-init -)"
 
-# correct poetry shell command
-alias poetry_shell='. "$(dirname $(poetry run which python))/activate"'
-
 # ssh, run keychain
 if [[ `uname` == Linux ]] then
     /usr/bin/keychain -q $HOME/.ssh/id_ed25519
