@@ -9,6 +9,7 @@ plugins=(git sudo)
 
 export LC_ALL=en_US.UTF-8
 export LANG=ru_RU.UTF-8
+export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
 
 source $ZSH/oh-my-zsh.sh
 
@@ -21,5 +22,3 @@ eval "$(pyenv virtualenv-init -)"
 if [[ `uname` == Linux ]] then
     /usr/bin/keychain -q $HOME/.ssh/id_rsa
 fi
-
-tmux attach -t master
