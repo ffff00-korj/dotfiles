@@ -63,8 +63,10 @@
     "dock": "right"
   },
   "vim_mode": true,
-  "ui_font_size": 14,
-  "buffer_font_size": 14,
+  "use_system_clipboard": "never",
+  "vim": { "use_system_clipboard": "never" },
+  "ui_font_size": 13,
+  "buffer_font_size": 13,
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "ui_font_family": "JetBrainsMono Nerd Font",
   "terminal": {
@@ -80,7 +82,6 @@
     "metrics": false
   },
   "relative_line_numbers": true,
-  "use_system_clipboard": "never",
   "vertical_scroll_margin": 15,
   "projects_online_by_default": false,
   "preferred_line_length": 79
