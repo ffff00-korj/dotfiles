@@ -5,7 +5,8 @@ build() {
 }
 
 up() {
-    devcontainer up --workspace-folder . --config ~/.devcontainer/devcontainer.json
+    devcontainer up --workspace-folder . --config ~/.devcontainer/devcontainer.json --secrets-file ~/.devcontainer/.env.json
+
 }
 
 attach() {
