@@ -19,7 +19,7 @@ devcontainer:
 	@brew install npm
 	@npm install -g @devcontainers/cli
 	@cp -r ./devcontainer/ ~/.devcontainer
-	@echo > "OPENROUTER_API_KEY=your_api_key_here" ~/.devcontainer/.env
+	@echo "OPENROUTER_API_KEY=your_api_key_here" > ~/.devcontainer/.env
 
 startup:
 	@make tmux
