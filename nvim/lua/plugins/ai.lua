@@ -20,7 +20,7 @@ local opts = {
           openai_fim_compatible = {
             api_key = "TERM",
             name = "Ollama",
-            end_point = "http://localhost:11434/v1/completions",
+            end_point = "http://host.docker.internal:11434/v1/completions",
             model = "qwen2.5-coder:3b",
             optional = {
               max_tokens = 56,
@@ -39,6 +39,7 @@ local opts = {
     opts = {
       model = "qwen2.5-coder:3b",
       display_mode = "vertical-split",
+      host = "host.docker.internal",
     },
   },
 }

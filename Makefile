@@ -1,6 +1,6 @@
 .PHONY: tmux devcontainer startup
 
-script:
+autodev:
 	@mkdir -p ~/.local/bin
 	@cp autodev.sh ~/.local/bin/autodev
 
@@ -23,5 +23,5 @@ devcontainer:
 startup:
 	@make tmux
 	@make devcontainer
-	@make script
+	@make autodev
 	
