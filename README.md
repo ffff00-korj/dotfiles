@@ -9,7 +9,7 @@
 * 🐳 Devcontainer конфигурация и скрипт `autodev`
 * 🐚 Zsh конфигурация для `devcontainer`
 * 👻 Ghostty конфигурация
-* ⚙️ Скрипты установки (поддерживаются только macOS и Linuxbrew)
+* ⚙️ Скрипты установки (поддерживаются только macOS и [Linuxbrew](https://brew.sh))
 
 ---
 
@@ -62,26 +62,4 @@ autodev launch   # build + up + attach
 
 * [Ghostty](https://github.com/your-link)
 * [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
-* `tmux`, `zsh`, `brew`, `docker`, `devcontainer/cli`
-
----
-
-## 📁 Структура
-
-```plaintext
-.
-├── Makefile
-├── autodev.sh
-├── devcontainer/
-├── nvim/
-├── tmux.conf
-├── zshrc
-└── ghostty/
-```
-
----
-
-## 📌 Примечание
-
-Этот репозиторий рассчитан на разработчиков, использующих **macOS** или **Linux с Homebrew**. Поддержка других систем не гарантируется.
-
+* tmux, zsh, brew, docker, devcontainer/cli
