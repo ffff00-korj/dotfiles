@@ -10,7 +10,7 @@ install-tmux:
 	cp ./tmux/tmux.conf ~/.tmux.conf
 
 install-alacritty:
-	cp ./alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+	cp ./alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
 
 install-gdb:
 	cp ./gdb/gdbinit ~/.gdbinit
