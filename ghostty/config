@@ -38,14 +38,15 @@ palette = 7=#f1f1f1
 palette = 15=#ffffff
 
 # font
-font-size = 11.5
+font-size = 13.5
 font-family = JetBrainsMono Nerd Font
 font-style = SemiBold
 
-#cursor
+# cursor
 cursor-click-to-move = false
 
+# macos special
 macos-option-as-alt = true
-
 keybind = alt+left=unbind
 keybind = alt+right=unbind
+
