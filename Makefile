@@ -12,3 +12,5 @@ install-tmux:
 install-alacritty:
 	cp ./alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 
+install-gdb:
+	cp ./gdb/gdbinit ~/.gdbinit
