@@ -1,5 +1,4 @@
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="$HOME/Applications:$PATH"
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/go/bin
 export PATH=$PATH:~/.local/bin
@@ -21,8 +20,3 @@ eval "$(pyenv init -)"
 
 # auto activate virtualenv, if .python-version or .venv exists
 eval "$(pyenv virtualenv-init -)"
-
-# ssh, run keychain
-if [[ `uname` == Linux ]] then
-    /usr/bin/keychain -q $HOME/.ssh/id_ed25519
-fi
