@@ -1,0 +1,11 @@
+{
+  "name": "Universal Dev Environment",
+  "dockerFile": "Dockerfile",
+  "remoteUser": "dev",
+  "remoteEnv": {
+    "OPENROUTER_API_KEY": "${localEnv:OPENROUTER_API_KEY}"
+  },
+  "postCreateCommand": "chsh -s $(which zsh)",
+  "workspaceFolder": "/home/dev/workspaces/${localWorkspaceFolderBasename}",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/home/dev/workspaces/${localWorkspaceFolderBasename},type=bind,consistency=cached"
+}
