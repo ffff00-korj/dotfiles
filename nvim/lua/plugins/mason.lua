@@ -18,6 +18,7 @@ local opts = {
         "html-lsp",
         "css-lsp",
         "typescript-language-server",
+        "bash-language-server",
       },
     })
   end,

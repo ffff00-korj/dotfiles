@@ -1,26 +1,26 @@
 #!/bin/bash
 
 build() {
-    devcontainer build --workspace-folder . --config ~/.devcontainer/devcontainer.json --no-cache
+    devcontainer build --workspace-folder . --config ~/.devcontainer/devcontainer.json
 }
 
 up() {
     devcontainer up --workspace-folder . --config ~/.devcontainer/devcontainer.json
 }
 
-exec() {
+attach() {
     devcontainer exec --workspace-folder . --config ~/.devcontainer/devcontainer.json zsh
 }
 
-all() {
+launch() {
     build
     up
-    exec
+    attach
 }
 
 case "$1" in
-    all)
-        all
+    launch)
+        launch 
         ;;
     build)
         build
@@ -28,10 +28,10 @@ case "$1" in
     up)
         up
         ;;
-    exec)
-        exec
+    attach)
+        attach
         ;;
     *)
-        echo "Usage: $0 {all|build|up|exec}"
+        echo "usage: $0 {launch|build|up|attach}"
         exit 1
 esac

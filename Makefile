@@ -2,7 +2,7 @@
 
 script:
 	@mkdir -p ~/.local/bin
-	@cp project.sh ~/.local/bin/project
+	@cp autodev.sh ~/.local/bin/autodev
 
 ghostty:
 	@brew install --cask ghostty font-jetbrains-mono-nerd-font
