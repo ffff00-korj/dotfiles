@@ -9,7 +9,6 @@
   - Python 🐍
   - Go 🐹
   - Lua 🌙
-  - JavaScript ⚡
   - Bash 🖥️
 - 🗂 **Oil.nvim** — продвинутый файловый менеджер в стиле интерфейса Neovim.
 - 🧪 **DAP (nvim-dap)** — встроенный отладчик с адаптерами для популярных языков.
@@ -20,13 +19,11 @@
   - Удобные команды для Git прямо из Neovim.
 - ✨ Эстетичный и минималистичный интерфейс с поддержкой тем и кастомизации.
 - 🛠️ Продвинутая настройка LSP, автодополнения и форматирования.
-  - Lsp
-  - blink.cmp
-  - Автокомплит и промпты с помощью AI(Ollama)
+- 🤖 Автокомплит и промпты с помощью AI (Ollama).
 
 ## ⚙️ Использование внутри DevContainer
 
-Конфигурация предназначена для запуска внутри **DevContainer** (например, через VS Code с Remote Containers или GitHub Codespaces).
+Конфигурация предназначена для запуска внутри **DevContainer**.
 
 > ❗ **Важно:** если Вы запускаете Neovim **вне** DevContainer, убедитесь, что изменили адрес хоста в файле:
 >
@@ -42,7 +39,9 @@
 2. Клонируйте репозиторий:
 
 ```bash
-git clone https://github.com/your-username/nvim-config ~/.config/nvim
+git clone https://github.com/ffff00-korj/dotfiles.git
+mkdir -p ~/.config
+cp -r dotfiles/nvim ~/.config
 ```
 
 3. Запустите Neovim — плагины будут установлены автоматически благодаря `lazy.nvim`.
@@ -54,4 +53,4 @@ git clone https://github.com/your-username/nvim-config ~/.config/nvim
 - `node` и `npm` (для JavaScript и некоторых LSP)
 - `go` (для Go)
 - `python3` и `pip`
-- **Обязательно** установить `ripgrep`, `fd`, `fzf` — для корректной работы `telescope`.
+- **Обязательно** установить `fd` — для корректной работы `telescope`.
