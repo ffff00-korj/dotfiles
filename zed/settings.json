@@ -4,11 +4,11 @@
 // documentation: https://zed.dev/docs/configuring-zed
 //
 // To see all of Zed's default settings without changing your
-// custom settings, run `zed: open default settings` from the
+// custom settings, run zed: open default settings from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "project_panel": {
-    "hide_gitignore": false
+    "hide_gitignore": true
   },
   "languages": {
     "Python": {
@@ -29,11 +29,24 @@
     }
   },
   "lsp": {
+    "ruff": {
+      "initialization_options": {
+        "settings": {
+          "lineLength": 100,
+          "format": {
+            "quote-style": "single"
+          }
+        }
+      }
+    },
     "pyright": {
       "settings": {
         "python.analysis": {
           "diagnosticMode": "openFileOnly",
           "typeCheckingMode": "standart"
+        },
+        "python": {
+          "pythonPath": ".venv/bin/python"
         }
       }
     }
@@ -49,10 +62,10 @@
       ]
     }
   ],
-  "assistant": {
+  "agent": {
     "default_model": {
       "provider": "ollama",
-      "model": "qwen2.5-coder:3b"
+      "model": "qwen2.5-coder:7b"
     },
     "version": "2"
   },
@@ -63,10 +76,10 @@
     "dock": "right"
   },
   "vim_mode": true,
-  "use_system_clipboard": "never",
   "vim": { "use_system_clipboard": "never" },
-  "ui_font_size": 13,
-  "buffer_font_size": 13,
+  "use_system_clipboard": "never",
+  "ui_font_size": 14,
+  "buffer_font_size": 14,
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "ui_font_family": "JetBrainsMono Nerd Font",
   "terminal": {
