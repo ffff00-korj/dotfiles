@@ -11,4 +11,5 @@ make all # install all
 
 make install-zsh # copy .zshrc to you
 make install-tmux # copy .tmux.conf
+make install-alacritty # copy alacritty.yml
 ```
