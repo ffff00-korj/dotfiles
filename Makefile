@@ -3,6 +3,7 @@ all:
 	make install-tmux
 	make install-alacritty
 	make install-neovim
+	make install-zed
 
 install-zsh:
 	git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
@@ -24,3 +25,6 @@ install-gdb:
 install-neovim:
 	sudo pacman -S fd
 	git clone git@github.com:ffff00-korj/nvim_config.git ~/.config/nvim
+
+install-zed:
+	cp -r ./zed ~/.config/zed
