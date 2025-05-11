@@ -19,9 +19,11 @@ command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+alias poetry_shell='. "$(dirname $(poetry run which python))/activate"'
 
 if [[ `uname` == Linux ]] then
     /usr/bin/keychain -q $HOME/.ssh/id_ed25519
 fi
 
 GOOSE_INSTALL=$HOME/go/bin/goose
+
