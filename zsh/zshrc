@@ -3,27 +3,29 @@ export PATH="$HOME/Applications:$PATH"
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/go/bin
 export PATH=$PATH:~/.local/bin
-ZSH_THEME="refined"
-
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-plugins=(git sudo poetry)
-
+export GOOSE_INSTALL=$HOME/go/bin/goose
+export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
 export LC_ALL=en_US.UTF-8
 export LANG=ru_RU.UTF-8
-export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
 
+# oh-my-zsh
+ZSH_THEME="refined"
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+plugins=(git sudo poetry)
 source $ZSH/oh-my-zsh.sh
 
+# pyenv very important settings
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-
 eval "$(pyenv init -)"
+
+# auto activate virtualenv, if .python-version or .venv exists
 eval "$(pyenv virtualenv-init -)"
+
+# correct poetry shell command
 alias poetry_shell='. "$(dirname $(poetry run which python))/activate"'
 
+# ssh, run keychain
 if [[ `uname` == Linux ]] then
     /usr/bin/keychain -q $HOME/.ssh/id_ed25519
 fi
-
-GOOSE_INSTALL=$HOME/go/bin/goose
-
