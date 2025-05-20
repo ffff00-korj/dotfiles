@@ -26,3 +26,8 @@ startup:
 	@make devcontainer
 	@make autodev
 	
+neovim:
+	@mkdir -p ~/.config
+	@rm -rf ~/.config/nvim
+	@cp -r ./nvim ~/.config
+

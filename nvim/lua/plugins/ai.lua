@@ -12,18 +12,18 @@ local opts = {
           },
         },
         provider = "openai_compatible",
-        request_timeout = 2.5,
-        n_completions = 2,
-        throttle = 1500,
-        debounce = 600,
+        request_timeout = 3,
+        n_completions = 1,
+        throttle = 1000,
+        debounce = 400,
         provider_options = {
           openai_compatible = {
             api_key = "OPENROUTER_API_KEY",
             end_point = "https://openrouter.ai/api/v1/chat/completions",
-            model = "anthropic/claude-3.5-haiku",
+            model = "anthropic/claude-3.5-haiku-20241022",
             name = "Openrouter",
             optional = {
-              max_tokens = 56,
+              max_tokens = 100,
               top_p = 0.9,
               provider = {
                 sort = "throughput",
