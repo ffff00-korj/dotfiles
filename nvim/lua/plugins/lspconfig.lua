@@ -64,6 +64,16 @@ local opts = {
         client.server_capabilities.documentRangeFormattingProvider = false
       end,
       capabilities = capabilities,
+      handlers = {
+        ["textDocument/publishDiagnostics"] = function() end,
+      },
+      settings = {
+        python = {
+          analysis = {
+            linting = false,
+          },
+        },
+      },
     })
     lspconfig.gopls.setup({ capabilities = capabilities })
     lspconfig.ruff.setup({ capabilities = capabilities })
@@ -83,7 +93,6 @@ local opts = {
         vim.defer_fn(function()
           vim.lsp.buf.format()
         end, 100)
-        require("lint").try_lint()
       else
         vim.lsp.buf.format()
       end
