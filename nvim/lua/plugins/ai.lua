@@ -5,7 +5,7 @@ local opts = {
     config = function()
       require("minuet").setup({
         virtualtext = {
-          auto_trigger_ft = { "python", "lua", "golang" },
+          auto_trigger_ft = { "python", "lua", "go" },
           keymap = {
             accept = "<A-a>",
             dismiss = "<A-e>",
