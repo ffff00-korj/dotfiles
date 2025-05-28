@@ -27,6 +27,7 @@ startup:
 	@make autodev
 	
 neovim:
+	@brew install fg go
 	@mkdir -p ~/.config
 	@rm -rf ~/.config/nvim
 	@cp -r ./nvim ~/.config
