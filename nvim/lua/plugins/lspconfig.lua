@@ -64,18 +64,6 @@ local opts = {
         client.server_capabilities.documentRangeFormattingProvider = false
       end,
       capabilities = capabilities,
-      handlers = {
-        ["textDocument/publishDiagnostics"] = function() end,
-      },
-      settings = {
-        python = {
-          analysis = {
-            typeCheckingMode = "off",
-            diagnosticMode = "off",
-            linting = false,
-          },
-        },
-      },
     })
     lspconfig.gopls.setup({ capabilities = capabilities })
     lspconfig.ruff.setup({ capabilities = capabilities })
