@@ -44,9 +44,6 @@ foreground = "#c0c0c0"
 background = "#313131"
 text = "#e1e1e1"
 
-[cursor.style]
-blinking = "On"
-
 [mouse]
 hide_when_typing = true
 
@@ -61,3 +58,5 @@ style = "SemiBold"
 option_as_alt = "Both"
 padding = { x = 5, y = 5 }
 startup_mode = "Maximized"
+title = "Terminal"
+dynamic_title = false
