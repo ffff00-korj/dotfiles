@@ -1,11 +1,14 @@
-.PHONY: tmux alacritty devcontainer startup
+.PHONY: font autodev alacritty tmux devcontainer startup neovim
+
+font:
+	@brew install --cask font-jetbrains-mono-nerd-font
 
 autodev:
 	@mkdir -p ~/.local/bin
 	@cp autodev.sh ~/.local/bin/autodev
 
 alacritty:
-	@brew install --cask alacritty font-jetbrains-mono-nerd-font
+	@brew install --cask alacritty
 	@mkdir -p ~/.config/alacritty
 	@cp alacritty/* ~/.config/alacritty/
 
