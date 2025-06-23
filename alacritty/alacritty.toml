@@ -1,0 +1,63 @@
+[[keyboard.bindings]]
+action = "None"
+key = "Left"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "None"
+key = "Right"
+mods = "Alt"
+
+[[mouse.bindings]]
+action = "PasteSelection"
+mouse = "Middle"
+
+[colors.bright]
+black = "#4d4d4d"
+blue = "#b1b1b1"
+cyan = "#d7d7d7"
+green = "#a6ffc9"
+magenta = "#49c4c4"
+red = "#708090"
+white = "#ffffff"
+yellow = "#e1e1e1"
+
+[colors.cursor]
+cursor = "#c0c0c0"
+text = "#1e1e2e"
+
+[colors.normal]
+black = "#303030"
+blue = "#a1a1a1"
+cyan = "#d1d1d1"
+green = "#1bfd9c"
+magenta = "#66b2b2"
+red = "#deeeed"
+white = "#f1f1f1"
+yellow = "#bababa"
+
+[colors.primary]
+background = "#1c1c1c"
+foreground = "#c0c0c0"
+
+[colors.selection]
+background = "#313131"
+text = "#e1e1e1"
+
+[cursor.style]
+blinking = "On"
+
+[mouse]
+hide_when_typing = true
+
+[font]
+size = 13.5
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "SemiBold"
+
+[window]
+option_as_alt = "Both"
+padding = { x = 5, y = 5 }
+startup_mode = "Maximized"

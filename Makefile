@@ -1,13 +1,13 @@
-.PHONY: tmux devcontainer startup
+.PHONY: tmux alacritty devcontainer startup
 
 autodev:
 	@mkdir -p ~/.local/bin
 	@cp autodev.sh ~/.local/bin/autodev
 
-ghostty:
-	@brew install --cask ghostty font-jetbrains-mono-nerd-font
-	@mkdir -p ~/.config/ghostty
-	@cp ghostty/config ~/.config/ghostty
+alacritty:
+	@brew install --cask alacritty font-jetbrains-mono-nerd-font
+	@mkdir -p ~/.config/alacritty
+	@cp alacritty/* ~/.config/alacritty/
 
 tmux:
 	@brew install tmux sesh zoxide fzf
