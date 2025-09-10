@@ -25,6 +25,9 @@ devcontainer:
 	@echo "OPENROUTER_API_KEY=your_api_key" > ~/.devcontainer/.env
 
 startup:
+	@make font
+	@make alacritty
+	@make neovim
 	@make tmux
 	@make devcontainer
 	@make autodev
