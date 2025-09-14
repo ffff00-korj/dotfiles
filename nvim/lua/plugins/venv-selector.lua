@@ -6,6 +6,9 @@ local opts = {
   },
   event = "VeryLazy",
   ft = "python",
+  cond = function()
+    return vim.bo.filetype == "python"
+  end,
   config = function()
     require("venv-selector").setup({
       notify_user_on_activate = false,
