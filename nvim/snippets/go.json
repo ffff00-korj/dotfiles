@@ -1,0 +1,12 @@
+{
+  "Error Check": {
+    "prefix": "ierr",
+    "body": "if err != nil {\n\t$0\n}",
+    "description": "Error check block"
+  },
+  "Go Routine": {
+    "prefix": "goa",
+    "body": "go func() {\n\t$0\n}()",
+    "description": "Anonymous goroutine"
+  }
+}
