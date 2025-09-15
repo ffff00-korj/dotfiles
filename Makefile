@@ -33,7 +33,8 @@ startup:
 	@make autodev
 	
 neovim:
-	@brew install fd go
+	@brew install fd goenv
+	@goenv install 1.24.7 && goenv global 1.24.7
 	@mkdir -p ~/.config
 	@rm -rf ~/.config/nvim
 	@cp -r ./nvim ~/.config
