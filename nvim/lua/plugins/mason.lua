@@ -19,8 +19,7 @@ local opts = {
         "css-lsp",
         "typescript-language-server",
         "bash-language-server",
-        "protols",
-        "protolint",
+        "buf",
       },
     })
   end,

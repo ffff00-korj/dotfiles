@@ -131,11 +131,10 @@ neovim:
 	@if ! goenv versions | grep -q "1.24.7"; then \
 		echo "Installing Go 1.24.7..."; \
 		goenv install 1.24.7; \
+		goenv global 1.24.7; \
 	else \
 		echo "Go 1.24.7 is already installed"; \
 	fi
-	
-	@goenv global 1.24.7
 
 	@mkdir -p ~/.config
 	@if [ -d ./nvim ]; then \
