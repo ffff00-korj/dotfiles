@@ -124,16 +124,11 @@ neovim:
 	@if ! brew list goenv >/dev/null 2>&1; then \
 		echo "Installing goenv..."; \
 		brew install goenv; \
+		echo "Installing go..."; \
+		goenv install latest; \
 	else \
 		echo "goenv is already installed"; \
-	fi
-
-	@if ! goenv versions | grep -q "1.24.7"; then \
-		echo "Installing Go 1.24.7..."; \
-		goenv install 1.24.7; \
-		goenv global 1.24.7; \
-	else \
-		echo "Go 1.24.7 is already installed"; \
+		echo "go is already installed"; \
 	fi
 
 	@mkdir -p ~/.config
@@ -163,11 +158,6 @@ check:
 		echo "✅ devcontainer CLI"; \
 	else \
 		echo "❌ devcontainer CLI"; \
-	fi
-	@if goenv versions | grep -q "1.24.7"; then \
-		echo "✅ Go 1.24.7"; \
-	else \
-		echo "❌ Go 1.24.7"; \
 	fi
 
 clean:

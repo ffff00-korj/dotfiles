@@ -20,6 +20,7 @@ local opts = {
         "typescript-language-server",
         "bash-language-server",
         "buf",
+        "checkmake",
       },
     })
   end,
