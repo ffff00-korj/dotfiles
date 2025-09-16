@@ -114,6 +114,13 @@ neovim:
 		echo "fd is already installed"; \
 	fi
 
+	@if ! brew list rust >/dev/null 2>&1; then \
+		echo "Installing rust..."; \
+		brew install rust; \
+	else \
+		echo "rust is already installed"; \
+	fi
+
 	@if ! brew list goenv >/dev/null 2>&1; then \
 		echo "Installing goenv..."; \
 		brew install goenv; \
