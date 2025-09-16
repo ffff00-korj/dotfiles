@@ -8,7 +8,7 @@
 * 📟 Tmux конфигурация
 * 🐳 Devcontainer конфигурация и скрипт `autodev`
 * 🐚 Zsh конфигурация для `devcontainer`
-* 👻 Ghostty конфигурация
+* ⚡ Alacritty конфигурация
 * ⚙️ Скрипты установки (поддерживаются только macOS и [Linuxbrew](https://brew.sh))
 
 ---
@@ -17,10 +17,10 @@
 
 Все команды автоматизированы в `Makefile`.
 
-### 1. Установка Ghostty и шрифта JetBrains Mono
+### 1. Установка Alacritty и шрифта JetBrains Mono
 
 ```bash
-make ghostty
+make alacritty
 ```
 
 ---
@@ -60,6 +60,6 @@ autodev launch   # build + up + attach
 
 ## 📝 Зависимости
 
-* [Ghostty](https://ghostty.org)
+* [Alacritty](https://alacritty.org)
 * [JetBrains Mono](https://www.jetbrains.com/lp/mono)
 * tmux, zsh, brew, docker, devcontainer/cli
