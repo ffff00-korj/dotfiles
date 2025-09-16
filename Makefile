@@ -66,6 +66,17 @@ tmux:
 		echo "Tmux not running or no active sessions"; \
 	fi
 
+zsh:
+	@sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	@echo "omz installed successfully"; \
+
+	@if [ -f ./.zshrc ]; then \
+		cp ./zsh/zshrc ~/.zshrc; \
+		echo "zsh configuration copied successfully"; \
+	else \
+		echo "Warning: .zshrc not found"; \
+	fi
+
 devcontainer:
 	@if ! brew list npm >/dev/null 2>&1; then \
 		echo "Installing npm..."; \
@@ -102,6 +113,7 @@ startup:
 	@make alacritty
 	@make neovim
 	@make tmux
+	@make zsh
 	@make devcontainer
 	@make autodev
 	@echo "Setup completed successfully! 🎉"
@@ -163,6 +175,7 @@ check:
 clean:
 	@echo "Removing configurations..."
 	@rm -f ~/.tmux.conf
+	@rm -f ~/.zshrc
 	@rm -rf ~/.tmux/plugins
 	@rm -rf ~/.config/alacritty
 	@rm -rf ~/.config/nvim
