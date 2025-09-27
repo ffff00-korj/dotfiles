@@ -85,7 +85,6 @@ local opts = {
     lspconfig.html.setup({ capabilities = capabilities })
     lspconfig.ts_ls.setup({ capabilities = capabilities })
     lspconfig.cssls.setup({ capabilities = capabilities })
-    vim.lsp.enable('docker_language_server')
 
     lspconfig.buf_ls.setup({
       capabilities = capabilities,

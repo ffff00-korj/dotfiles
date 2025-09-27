@@ -21,7 +21,6 @@ local opts = {
         "bash-language-server",
         "buf",
         "checkmake",
-        "docker-language-server",
       },
     })
   end,

@@ -19,6 +19,15 @@ local opts = {
         auto_show_delay_ms = 100,
       },
     },
+    sources = {
+      default = { "lsp", "path", "snippets", "buffer" },
+      per_filetype = {
+        sql = { "snippets", "dadbod", "buffer" },
+      },
+      providers = {
+        dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
+      },
+    },
   },
 }
 
