@@ -50,52 +50,57 @@ local opts = {
     })
   end,
   config = function()
-    local lspconfig = require("lspconfig")
     local capabilities = require("blink.cmp").get_lsp_capabilities()
-    lspconfig.lua_ls.setup({
-      capabilities = capabilities,
-      settings = {
-        Lua = {
-          diagnostics = {
-            disable = { "missing-fields" },
-          },
-        },
-      },
-    })
-    lspconfig.pyright.setup({
-      on_attach = function(client, _)
-        client.server_capabilities.documentFormattingProvider = false
-        client.server_capabilities.documentRangeFormattingProvider = false
-      end,
-      capabilities = capabilities,
-      handlers = {
-        ["textDocument/publishDiagnostics"] = function() end,
-      },
-      settings = {
-        python = {
-          analysis = {
-            linting = false,
-          },
-        },
-      },
-    })
-    lspconfig.gopls.setup({ capabilities = capabilities })
-    lspconfig.ruff.setup({ capabilities = capabilities })
-    lspconfig.bashls.setup({ capabilities = capabilities })
-    lspconfig.html.setup({ capabilities = capabilities })
-    lspconfig.ts_ls.setup({ capabilities = capabilities })
-    lspconfig.cssls.setup({ capabilities = capabilities })
 
-    lspconfig.buf_ls.setup({
-      capabilities = capabilities,
-      cmd = {
-        "buf",
-        "beta",
-        "lsp",
-        "--timeout=0",
-        "--log-format=text",
+    local servers = {
+      lua_ls = {
+        capabilities = capabilities,
+        settings = {
+          Lua = {
+            diagnostics = {
+              disable = { "missing-fields" },
+            },
+          },
+        },
       },
-    })
+      pyright = {
+        capabilities = capabilities,
+        on_init = function(client, _)
+          client.server_capabilities.documentFormattingProvider = false
+          client.server_capabilities.documentRangeFormattingProvider = false
+        end,
+        handlers = {
+          ["textDocument/publishDiagnostics"] = function() end,
+        },
+        settings = {
+          python = {
+            analysis = {
+              linting = false,
+            },
+          },
+        },
+      },
+      gopls = { capabilities = capabilities },
+      ruff = { capabilities = capabilities },
+      bashls = { capabilities = capabilities },
+      html = { capabilities = capabilities },
+      ts_ls = { capabilities = capabilities },
+      cssls = { capabilities = capabilities },
+      buf_ls = {
+        capabilities = capabilities,
+        cmd = {
+          "buf",
+          "beta",
+          "lsp",
+          "--timeout=0",
+          "--log-format=text",
+        },
+      },
+    }
+    for server_name, config in pairs(servers) do
+      vim.lsp.config[server_name] = config
+      vim.lsp.enable(server_name)
+    end
 
     vim.keymap.set("n", "<F3>", function()
       if vim.bo.filetype == "lua" then
