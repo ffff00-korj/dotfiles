@@ -2,8 +2,6 @@ local opts = {
   "saghen/blink.cmp",
   dependencies = "L3MON4D3/LuaSnip",
   version = "v0.*",
-  ---@module 'blink.cmp'
-  ---@type blink.cmp.Config
   opts = {
     keymap = {
       preset = "super-tab",

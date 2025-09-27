@@ -143,6 +143,13 @@ neovim:
 		echo "go is already installed"; \
 	fi
 
+	@if ! brew list postgresql >/dev/null 2>&1; then \
+		echo "Installing postgresql..."; \
+		brew install postgresql; \
+	else \
+		echo "postgresql is already installed"; \
+	fi
+
 	@mkdir -p ~/.config
 	@if [ -d ./nvim ]; then \
 		rm -rf ~/.config/nvim; \
