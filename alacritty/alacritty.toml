@@ -1,4 +1,14 @@
 [[keyboard.bindings]]
+key = "С"
+mods = "Command"
+action = "Copy"
+
+[[keyboard.bindings]]
+key = "М"
+mods = "Command"
+action = "Paste"
+
+[[keyboard.bindings]]
 action = "None"
 key = "Left"
 mods = "Alt"
