@@ -36,7 +36,7 @@ alacritty:
 	fi
 
 tmux:
-	@for pkg in tmux sesh zoxide fzf; do \
+	@for pkg in tmux sesh zoxide fzf sst/tap/opencode; do \
 		if ! brew list $$pkg >/dev/null 2>&1; then \
 			echo "Installing $$pkg..."; \
 			brew install $$pkg; \
