@@ -1,5 +1,6 @@
 local opts = {
   { "jiangmiao/auto-pairs" },
+  { "tpope/vim-surround" },
   {
     "numToStr/Comment.nvim",
     config = function()
