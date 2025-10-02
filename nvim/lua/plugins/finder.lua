@@ -11,7 +11,7 @@ local opts = {
     telescope.setup({
       opts = opts,
       defaults = vim.tbl_extend("force", require("telescope.themes").get_ivy(), {
-        file_ignore_patterns = { ".git", "node_modules", ".trash" },
+        file_ignore_patterns = { ".git", ".trash" },
         mappings = { n = { ["q"] = require("telescope.actions").close } },
         extensions = { fzf = {} },
       }),
@@ -19,12 +19,12 @@ local opts = {
     local builtin = require("telescope.builtin")
     telescope.load_extension("fzf")
 
-    vim.keymap.set("n", "<leader><leader>", "<cmd>Telescope buffers<cr>", { desc = "Current opened buffers" })
+    vim.keymap.set("n", "<leader><leader>", "<cmd>Telescope buffers<cr>", { desc = "Telescope: Current opened buffers" })
 
     vim.keymap.set("n", "<leader>pf", function()
       builtin.find_files({ no_ignore = true })
-    end, { desc = "[p]rocess [f]iles" })
-    vim.keymap.set("n", "<leader>ps", builtin.live_grep, { desc = "[p]rocess grep [s]tring" })
+    end, { desc = "Telescope: [p]rocess [f]iles" })
+    vim.keymap.set("n", "<leader>ps", builtin.live_grep, { desc = "Telescope: [p]rocess grep [s]tring" })
   end,
 }
 
