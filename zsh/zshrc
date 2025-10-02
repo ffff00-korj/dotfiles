@@ -18,10 +18,11 @@ export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
 eval "$(goenv init -)"
 
-# load openrouter key from file
+# Load OpenRouter key
 if [ -f ~/.openrouter_key ]; then
     source ~/.openrouter_key
 else
-    echo "OPENROUTER_API_KEY not found, check if .openrouter_key file exists"
+    echo 'export OPENROUTER_API_KEY="your_key_here"' > ~/.openrouter_key
+    chmod 600 ~/.openrouter_key
+    echo "Add your key to ~/.openrouter_key"
 fi
-
