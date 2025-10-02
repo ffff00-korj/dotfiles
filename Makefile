@@ -81,7 +81,7 @@ zsh:
 
 	@if [ -d ./zsh ]; then \
 		cp ./zsh/zshrc ~/.zshrc; \
-		source ~/.zshrc
+		echo "Please run 'source ~/.zshrc' or restart your terminal"; \
 		echo "zsh configuration copied successfully"; \
 	else \
 		echo "Warning: .zshrc not found"; \
