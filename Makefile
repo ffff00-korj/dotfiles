@@ -1,4 +1,4 @@
-.PHONY: font autodev alacritty tmux devcontainer startup neovim
+.PHONY: font autodev alacritty tmux zsh devcontainer startup neovim 
 
 font:
 	@if ! brew list --cask font-jetbrains-mono-nerd-font >/dev/null 2>&1; then \
@@ -79,7 +79,7 @@ zsh:
 	@sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 	@echo "omz installed successfully"; \
 
-	@if [ -f ./.zshrc ]; then \
+	@if [ -d ./zsh ]; then \
 		cp ./zsh/zshrc ~/.zshrc; \
 		echo "zsh configuration copied successfully"; \
 	else \
@@ -116,17 +116,6 @@ devcontainer:
 		echo ".env file already exists"; \
 	fi
 
-startup:
-	@echo "Starting setup process..."
-	@make font
-	@make alacritty
-	@make neovim
-	@make tmux
-	@make zsh
-	@make devcontainer
-	@make autodev
-	@echo "Setup completed successfully! 🎉"
-	
 neovim:
 	@if ! brew list fd >/dev/null 2>&1; then \
 		echo "Installing fd..."; \
@@ -168,33 +157,13 @@ neovim:
 		echo "Warning: nvim directory not found"; \
 	fi
 
-check:
-	@echo "Checking installed packages..."
-	@for pkg in fd goenv alacritty tmux sesh zoxide fzf npm; do \
-		if brew list $$pkg >/dev/null 2>&1; then \
-			echo "✅ $$pkg"; \
-		else \
-			echo "❌ $$pkg"; \
-		fi \
-	done
-	@if brew list --cask font-jetbrains-mono-nerd-font >/dev/null 2>&1; then \
-		echo "✅ font-jetbrains-mono-nerd-font"; \
-	else \
-		echo "❌ font-jetbrains-mono-nerd-font"; \
-	fi
-	@if command -v devcontainer >/dev/null 2>&1; then \
-		echo "✅ devcontainer CLI"; \
-	else \
-		echo "❌ devcontainer CLI"; \
-	fi
-
-clean:
-	@echo "Removing configurations..."
-	@rm -f ~/.tmux.conf
-	@rm -f ~/.zshrc
-	@rm -rf ~/.tmux/plugins
-	@rm -rf ~/.config/alacritty
-	@rm -rf ~/.config/nvim
-	@rm -rf ~/.devcontainer
-	@rm -f ~/.local/bin/autodev
-	@echo "Configurations removed"
+startup:
+	@echo "Starting setup process..."
+	@make font
+	@make alacritty
+	@make neovim
+	@make tmux
+	@make zsh
+	@make devcontainer
+	@make autodev
+	@echo "Setup completed successfully! 🎉"

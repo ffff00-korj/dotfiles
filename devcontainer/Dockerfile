@@ -17,7 +17,6 @@ RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master
 
 RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" && \
     brew install \
-        pyenv pyenv-virtualenv poetry ruff \
         nvim fd \
         go \
         npm

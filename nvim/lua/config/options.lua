@@ -1,35 +1,28 @@
-vim.opt.guicursor = ""
-vim.opt.mouse = ""
+local opt = vim.opt
+local cmd = vim.cmd
 
-vim.opt.nu = true
-vim.opt.relativenumber = true
-
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-
-vim.opt.smartindent = true
-
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = vim.env.HOME .. "/.vim/undodir"
-vim.opt.undofile = true
-
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
-vim.opt.ignorecase = true
-
-vim.opt.termguicolors = true
-
-vim.opt.scrolloff = 15
-
-vim.opt.signcolumn = "yes"
-vim.opt.isfname:append("@-@")
-
-vim.opt.updatetime = 50
-
+opt.guicursor = ""
+opt.mouse = ""
+opt.nu = true
+opt.relativenumber = true
+opt.tabstop = 4
+opt.softtabstop = 4
+opt.shiftwidth = 4
+opt.expandtab = true
+opt.smartindent = true
+opt.swapfile = false
+opt.backup = false
+opt.undodir = vim.env.HOME .. "/.vim/undodir"
+opt.undofile = true
+opt.hlsearch = false
+opt.incsearch = true
+opt.ignorecase = true
+opt.termguicolors = true
+opt.scrolloff = 15
+opt.signcolumn = "yes"
+opt.isfname:append("@-@")
+opt.updatetime = 50
 -- for russian layout
-vim.cmd("set keymap=russian-jcukenwin")
-vim.cmd("set iminsert=0")
-vim.cmd("set imsearch=0")
+cmd("set keymap=russian-jcukenwin")
+cmd("set iminsert=0")
+cmd("set imsearch=0")

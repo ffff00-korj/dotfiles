@@ -1,3 +1,11 @@
+local function format()
+  if vim.bo.filetype == "lua" then
+    require("stylua-nvim").format_file()
+  else
+    vim.lsp.buf.format()
+  end
+end
+
 local opts = {
   "neovim/nvim-lspconfig",
   dependencies = {
@@ -5,118 +13,34 @@ local opts = {
     "williamboman/mason-lspconfig.nvim",
     "saghen/blink.cmp",
     "ckipp01/stylua-nvim",
+    "mfussenegger/nvim-lint",
     {
       "folke/lazydev.nvim",
-      ft = "lua", -- file type
+      ft = "lua",
       cond = function()
         return vim.bo.filetype == "lua"
       end,
-      opts = {
-        library = {
-          { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-        },
-      },
+      opts = { library = { { path = "${3rd}/luv/library", words = { "vim%.uv" } } } },
     },
-    "mfussenegger/nvim-lint",
   },
-  init = function()
-    vim.api.nvim_create_autocmd("LspAttach", {
-      desc = "Keymaps for Lsp",
-      callback = function(event)
-        local map = function(keys, func, desc, mode)
-          mode = mode or "n"
-          vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
-        end
-
-        map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-        map("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
-        map("gr", vim.lsp.buf.references, "[G]oto [R]eferences")
-        map("gi", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
-        map("gt", vim.lsp.buf.type_definition, "[G]oto [T]ype definition")
-        map("ca", vim.lsp.buf.code_action, "Show [c]ode [a]ctions")
-        map("<F2>", vim.lsp.buf.rename, "[R]e[n]ame")
-        map(
-          "<leader>ht",
-          (function(config)
-            local default, active = vim.diagnostic.config(), false
-            return function()
-              vim.diagnostic.config(active and default or config)
-              active = not active
-            end
-          end)({ virtual_text = false, virtual_lines = { current_line = true } }),
-          "[H]int [T]oggle"
-        )
-      end,
-    })
-  end,
   config = function()
     local capabilities = require("blink.cmp").get_lsp_capabilities()
-
     local servers = {
       lua_ls = {
         capabilities = capabilities,
-        settings = {
-          Lua = {
-            diagnostics = {
-              disable = { "missing-fields" },
-            },
-          },
-        },
-      },
-      pyright = {
-        capabilities = capabilities,
-        on_init = function(client, _)
-          client.server_capabilities.documentFormattingProvider = false
-          client.server_capabilities.documentRangeFormattingProvider = false
-        end,
-        handlers = {
-          ["textDocument/publishDiagnostics"] = function() end,
-        },
-        settings = {
-          python = {
-            analysis = {
-              linting = false,
-            },
-          },
-        },
+        settings = { Lua = { diagnostics = { globals = { "vim" }, disable = { "missing-fields" } } } },
       },
       gopls = { capabilities = capabilities },
-      ruff = { capabilities = capabilities },
       bashls = { capabilities = capabilities },
       html = { capabilities = capabilities },
-      ts_ls = { capabilities = capabilities },
-      cssls = { capabilities = capabilities },
-      buf_ls = {
-        capabilities = capabilities,
-        cmd = {
-          "buf",
-          "beta",
-          "lsp",
-          "--timeout=0",
-          "--log-format=text",
-        },
-      },
+      buf_ls = { capabilities = capabilities },
     }
     for server_name, config in pairs(servers) do
       vim.lsp.config[server_name] = config
       vim.lsp.enable(server_name)
     end
 
-    vim.keymap.set("n", "<F3>", function()
-      if vim.bo.filetype == "lua" then
-        require("stylua-nvim").format_file()
-      elseif vim.bo.filetype == "python" then
-        vim.lsp.buf.code_action({
-          context = { only = { "source.fixAll" } },
-          apply = true,
-        })
-        vim.defer_fn(function()
-          vim.lsp.buf.format()
-        end, 100)
-      else
-        vim.lsp.buf.format()
-      end
-    end, { desc = "Format current buffer" })
+    vim.keymap.set("n", "<F3>", format, { desc = "Format current buffer" })
   end,
 }
 
