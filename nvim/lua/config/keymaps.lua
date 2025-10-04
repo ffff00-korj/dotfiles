@@ -24,3 +24,4 @@ map("<leader>x", ":lua<CR>","Execute cur visual selection", "v")
 -- yank to clipboard
 map("<leader>y", [["+y]], "Yank object to clipboard", { "n", "v" })
 map("<leader>Y", [["+Y]], "Yank line to clipboard")
+map("<Esc>", "<cmd>nohlsearch<CR>", "Clear highlight search in normalmode")
