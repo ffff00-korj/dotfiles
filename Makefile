@@ -125,6 +125,13 @@ neovim:
 		echo "fd is already installed"; \
 	fi
 
+	@if ! brew list ripgrep >/dev/null 2>&1; then \
+		echo "Installing ripgrep..."; \
+		brew install ripgrep; \
+	else \
+		echo "ripgrep is already installed"; \
+	fi
+
 	@if ! brew list rust >/dev/null 2>&1; then \
 		echo "Installing rust..."; \
 		brew install rust; \
