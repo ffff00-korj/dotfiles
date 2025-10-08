@@ -79,6 +79,13 @@ zsh:
 	@sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 	@echo "omz installed successfully"; \
 
+	@if [ ! -d ~/.zsh/zsh-autosuggestions ]; then \
+		git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions; \
+		echo "zsh-autosuggestions cloned into ~/.zsh/zsh-autosuggestions"; \
+	else \
+		echo "Warning: '~/.zsh/zsh-autosuggestions already exists'"; \
+	fi
+
 	@if [ -d ./zsh ]; then \
 		cp ./zsh/zshrc ~/.zshrc; \
 		echo "Please run 'source ~/.zshrc' or restart your terminal"; \
@@ -118,6 +125,13 @@ devcontainer:
 	fi
 
 neovim:
+	@if ! brew list neovim >/dev/null 2>&1; then \
+		echo "Installing neovim..."; \
+		brew install neovim; \
+	else \
+		echo "neovim is already installed"; \
+	fi
+
 	@if ! brew list fd >/dev/null 2>&1; then \
 		echo "Installing fd..."; \
 		brew install fd; \
