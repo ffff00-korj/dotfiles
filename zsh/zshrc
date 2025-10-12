@@ -26,3 +26,7 @@ else
     chmod 600 ~/.openrouter_key
     echo "Add your key to ~/.openrouter_key"
 fi
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(~/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
