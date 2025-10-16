@@ -20,6 +20,12 @@ local opts = {
     },
   },
   {
+    "ffff00-korj/tl-nvim",
+    config = function()
+      require("tl-nvim").setup()
+    end,
+  },
+  {
     "echasnovski/mini.nvim",
     enabled = true,
     config = function()
