@@ -1,5 +1,4 @@
-.PHONY: font autodev alacritty tmux zsh devcontainer startup neovim 
-
+.PHONY: font
 font:
 	@if ! brew list --cask font-jetbrains-mono-nerd-font >/dev/null 2>&1; then \
 		echo "Installing JetBrains Mono Nerd Font..."; \
@@ -8,6 +7,7 @@ font:
 		echo "JetBrains Mono Nerd Font is already installed"; \
 	fi
 
+.PHONY: autodev
 autodev:
 	@mkdir -p ~/.local/bin
 	@if [ -f ~/.local/bin/autodev ]; then \
@@ -19,6 +19,7 @@ autodev:
 	@chmod +x ~/.local/bin/autodev
 	@echo "autodev script installed/updated successfully"
 
+.PHONY: alacritty
 alacritty:
 	@if ! brew list --cask alacritty >/dev/null 2>&1; then \
 		echo "Installing Alacritty..."; \
@@ -35,6 +36,7 @@ alacritty:
 		echo "Warning: alacritty directory not found"; \
 	fi
 
+.PHONY: tmux
 tmux:
 	@for pkg in tmux sesh zoxide fzf; do \
 		if ! brew list $$pkg >/dev/null 2>&1; then \
@@ -73,6 +75,7 @@ tmux:
 		echo "Tmux not running or no active sessions"; \
 	fi
 
+.PHONY: zsh
 zsh:
 	@sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 	@echo "omz installed successfully"; \
@@ -92,6 +95,7 @@ zsh:
 		echo "Warning: .zshrc not found"; \
 	fi
 
+.PHONY: devcontainer
 devcontainer:
 	@if ! brew list npm >/dev/null 2>&1; then \
 		echo "Installing npm..."; \
@@ -122,6 +126,7 @@ devcontainer:
 		echo ".env file already exists"; \
 	fi
 
+.PHONY: neovim
 neovim:
 	@if ! brew list neovim >/dev/null 2>&1; then \
 		echo "Installing neovim..."; \
@@ -177,6 +182,7 @@ neovim:
 		echo "Warning: nvim directory not found"; \
 	fi
 
+.PHONY: startup
 startup:
 	@echo "Starting setup process..."
 	@make font
