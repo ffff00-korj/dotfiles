@@ -45,8 +45,12 @@ tmux:
 		fi \
 	done
 
-	# TODO !normal conditional setup
-	@npm install -g @openai/codex
+	@if ! npm ls -g @openai/codex --depth=0 >/dev/null 2>&1; then
+		echo "Пакет @openai/codex не установлен. Устанавливаю..."
+		npm install -g @openai/codex
+	else
+		echo "pkg @openai/codex is already installed."
+	fi
 
 	@if [ -f ./tmux/tmux.conf ]; then \
 		cp ./tmux/tmux.conf ~/.tmux.conf; \
