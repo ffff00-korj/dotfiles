@@ -36,7 +36,7 @@ alacritty:
 	fi
 
 tmux:
-	@for pkg in tmux sesh zoxide fzf sst/tap/opencode; do \
+	@for pkg in tmux sesh zoxide fzf; do \
 		if ! brew list $$pkg >/dev/null 2>&1; then \
 			echo "Installing $$pkg..."; \
 			brew install $$pkg; \
@@ -44,6 +44,9 @@ tmux:
 			echo "$$pkg is already installed"; \
 		fi \
 	done
+
+	# TODO !normal conditional setup
+	@npm install -g @openai/codex
 
 	@if [ -f ./tmux/tmux.conf ]; then \
 		cp ./tmux/tmux.conf ~/.tmux.conf; \
