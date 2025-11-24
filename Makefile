@@ -66,15 +66,6 @@ tmux:
 		echo "TPM is already installed"; \
 	fi
 
-	@mkdir -p ~/.config
-	@if [ -d ./opencode ]; then \
-		rm -rf ~/.config/opencode; \
-		cp -r ./opencode ~/.config; \
-		echo "Opencode configuration copied successfully"; \
-	else \
-		echo "Warning: Opencode directory not found"; \
-	fi
-
 	@if command -v tmux >/dev/null 2>&1 && tmux list-sessions >/dev/null 2>&1; then \
 		echo "Reloading tmux configuration..."; \
 		tmux source-file ~/.tmux.conf; \
