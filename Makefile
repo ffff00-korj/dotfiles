@@ -47,13 +47,6 @@ tmux:
 		fi \
 	done
 
-	@if ! npm ls -g @openai/codex --depth=0 >/dev/null 2>&1; then \
-		echo "Пакет @openai/codex не установлен. Устанавливаю..."; \
-		npm install -g @openai/codex; \
-	else \
-		echo "pkg @openai/codex is already installed."; \
-	fi
-
 	@if [ -f ./tmux/tmux.conf ]; then \
 		cp ./tmux/tmux.conf ~/.tmux.conf; \
 		echo "tmux configuration copied successfully"; \
@@ -77,7 +70,7 @@ tmux:
 
 .PHONY: zsh
 zsh:
-	@sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	@sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"; \
 	@echo "omz installed successfully"; \
 
 	@if [ ! -d ~/.zsh/zsh-autosuggestions ]; then \
@@ -93,37 +86,6 @@ zsh:
 		echo "zsh configuration copied successfully"; \
 	else \
 		echo "Warning: .zshrc not found"; \
-	fi
-
-.PHONY: devcontainer
-devcontainer:
-	@if ! brew list npm >/dev/null 2>&1; then \
-		echo "Installing npm..."; \
-		brew install npm; \
-	else \
-		echo "npm is already installed"; \
-	fi
-
-	@if ! command -v devcontainer >/dev/null 2>&1; then \
-		echo "Installing devcontainer CLI..."; \
-		npm install -g @devcontainers/cli; \
-	else \
-		echo "devcontainer CLI is already installed"; \
-	fi
-
-	@mkdir -p ~/.devcontainer
-	@if [ -d ./devcontainer ]; then \
-		cp -r ./devcontainer/* ~/.devcontainer/; \
-		echo "Devcontainer configuration copied successfully"; \
-	else \
-		echo "Warning: devcontainer directory not found"; \
-	fi
-
-	@if [ ! -f ~/.devcontainer/.env ]; then \
-		echo "OPENROUTER_API_KEY=your_api_key_here" > ~/.devcontainer/.env; \
-		echo "Created .env file - don't forget to add your API key!"; \
-	else \
-		echo ".env file already exists"; \
 	fi
 
 .PHONY: neovim
@@ -156,23 +118,6 @@ neovim:
 		echo "rust is already installed"; \
 	fi
 
-	@if ! brew list goenv >/dev/null 2>&1; then \
-		echo "Installing goenv..."; \
-		brew install goenv; \
-		echo "Installing go..."; \
-		goenv install latest; \
-	else \
-		echo "goenv is already installed"; \
-		echo "go is already installed"; \
-	fi
-
-	@if ! brew list postgresql >/dev/null 2>&1; then \
-		echo "Installing postgresql..."; \
-		brew install postgresql; \
-	else \
-		echo "postgresql is already installed"; \
-	fi
-
 	@mkdir -p ~/.config
 	@if [ -d ./nvim ]; then \
 		rm -rf ~/.config/nvim; \
@@ -182,14 +127,17 @@ neovim:
 		echo "Warning: nvim directory not found"; \
 	fi
 
+.PHONY: brew
+brew:
+	@/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
 .PHONY: startup
 startup:
 	@echo "Starting setup process..."
+	@make brew
 	@make font
 	@make alacritty
 	@make neovim
 	@make tmux
 	@make zsh
-	@make devcontainer
-	@make autodev
 	@echo "Setup completed successfully! 🎉"
