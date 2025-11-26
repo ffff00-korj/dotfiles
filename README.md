@@ -23,7 +23,7 @@ make startup
 Это выполнит установку и настройку всех компонентов:
 - Установка шрифта JetBrains Mono
 - Установка Alacritty
-- Настройка Neovim (с установкой зависимостей fd, rust, goenv, postgresql)
+- Настройка Neovim (с установкой зависимостей fd, rust, postgresql)
 - Настройка Tmux и дополнительных утилит
 - Установка Zsh и Oh My Zsh
 
@@ -49,7 +49,7 @@ make tmux
 ```bash
 make neovim
 ```
-- Устанавливает fd, rust, goenv, go, postgresql
+- Устанавливает fd, rust, go, postgresql
 - Копирует конфигурацию Neovim в `~/.config/nvim`
 
 6. **Zsh**
