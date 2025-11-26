@@ -71,7 +71,6 @@ tmux:
 .PHONY: zsh
 zsh:
 	@sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"; \
-	@echo "omz installed successfully"; \
 
 	@if [ ! -d ~/.zsh/zsh-autosuggestions ]; then \
 		git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions; \
