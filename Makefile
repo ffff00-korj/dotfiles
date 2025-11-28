@@ -117,6 +117,13 @@ neovim:
 		echo "rust is already installed"; \
 	fi
 
+	@if ! brew list node >/dev/null 2>&1; then \
+		echo "Installing node..."; \
+		brew install node; \
+	else \
+		echo "node is already installed"; \
+	fi
+
 	@mkdir -p ~/.config
 	@if [ -d ./nvim ]; then \
 		rm -rf ~/.config/nvim; \
