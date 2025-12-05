@@ -15,7 +15,6 @@ local opts = {
           "stylua",
           "buf",
           "lua-language-server",
-          "bash-language-server",
         },
       })
     end,
