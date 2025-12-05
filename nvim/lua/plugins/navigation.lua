@@ -9,7 +9,7 @@ local opts = {
     event = "VeryLazy",
     cmd = "Trouble",
     opts = { signs = { error = "E", warning = "W", hint = "H", information = "I" } },
-    keys = { { "<leader>pt", "<cmd>Trouble diagnostics toggle focus=true<cr>", { desc = "Trouble: [p]rocess [t]roubles" } } },
+    keys = { { "<leader>pt", "<cmd>Trouble diagnostics toggle focus=true filter.buf=0<cr>", { desc = "Trouble: [p]rocess [t]roubles" } } },
   },
   {
     "theprimeagen/harpoon",

@@ -31,7 +31,10 @@ local opts = {
         settings = { Lua = { diagnostics = { globals = { "vim" }, disable = { "missing-fields" } } } },
       },
       gopls = { capabilities = capabilities },
-      golangci_lint_ls = { capabilities = capabilities, filetypes = { "go", "gomod" } },
+      golangci_lint_ls = {
+        capabilities = capabilities,
+        filetypes = { "go", "gomod" },
+      },
       html = { capabilities = capabilities },
       buf_ls = { capabilities = capabilities },
     }
