@@ -12,6 +12,9 @@ local opts = {
       require("mason-tool-installer").setup({
         ensure_installed = {
           "gopls",
+          "delve",
+          "golangci-lint-langserver",
+
           "stylua",
           "buf",
           "lua-language-server",
