@@ -137,13 +137,19 @@ neovim:
 brew:
 	@/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-.PHONY: opencode
-opencode:
-	@if ! brew list node >/dev/null 2>&1; then \
+.PHONY: aitools
+aitools:
+	@if ! brew list opencode >/dev/null 2>&1; then \
 		echo "Installing opencode..."; \
 		brew install opencode; \
 	else \
 		echo "opencode is already installed"; \
+	fi
+	@if ! brew list aichat >/dev/null 2>&1; then \
+		echo "Installing aichat..."; \
+		brew install aichat; \
+	else \
+		echo "aichat is already installed"; \
 	fi
 
 .PHONY: startup
@@ -155,5 +161,5 @@ startup:
 	@make neovim
 	@make tmux
 	@make zsh
-	@make opencode
+	@make aitools
 	@echo "Setup completed successfully! 🎉"
