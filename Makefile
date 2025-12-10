@@ -137,6 +137,15 @@ neovim:
 brew:
 	@/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+.PHONY: opencode
+opencode:
+	@if ! brew list node >/dev/null 2>&1; then \
+		echo "Installing opencode..."; \
+		brew install opencode; \
+	else \
+		echo "opencode is already installed"; \
+	fi
+
 .PHONY: startup
 startup:
 	@echo "Starting setup process..."
@@ -146,4 +155,5 @@ startup:
 	@make neovim
 	@make tmux
 	@make zsh
+	@make opencode
 	@echo "Setup completed successfully! 🎉"

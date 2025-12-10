@@ -17,3 +17,22 @@ source $ZSH/oh-my-zsh.sh
 fpath=(~/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
+
+# Load OpenRouter key
+if [ -f ~/.openrouter_key ]; then
+    source ~/.openrouter_key
+else
+    echo 'export OPENCODE_DISABLE_DEFAULT_PLUGINS=true' > ~/.openrouter_key
+    echo 'export OPENROUTER_API_KEY="your_key_here"' >> ~/.openrouter_key
+    chmod 600 ~/.openrouter_key
+    echo "Add your key to ~/.openrouter_key"
+fi
+
+# Additional setup options for work
+if [ -f ~/.worksetup ]; then
+    source ~/.worksetup
+else
+    echo '# your setup options here'> ~/.worksetup
+    chmod 600 ~/.worksetup
+    echo "~/.worksetup file created"
+fi
