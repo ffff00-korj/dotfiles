@@ -17,19 +17,9 @@ local opts = {
           "%.trash/",
         },
         mappings = {
-          n = {
-            ["q"] = actions.close,
-          },
+          n = { ["q"] = actions.close },
         },
       }),
-
-      pickers = {
-        find_files = {
-          hidden = true,
-          no_ignore = true,
-        },
-      },
-
       extensions = {
         fzf = {
           fuzzy = true,
@@ -41,20 +31,37 @@ local opts = {
     })
 
     telescope.load_extension("fzf")
+
     vim.keymap.set(
       "n",
       "<leader><leader>",
       "<cmd>Telescope buffers<cr>",
       { desc = "Telescope: Current opened buffers" }
     )
-    vim.keymap.set("n", "<leader>pf", builtin.find_files, { desc = "Telescope: Find files (including hidden)" })
-    vim.keymap.set("n", "<leader>ps", function()
+
+    vim.keymap.set("n", "<leader>pf", function()
+      builtin.find_files({
+        hidden = false,
+        no_ignore = false,
+      })
+    end, { desc = "Telescope: Find files" })
+
+    vim.keymap.set("n", "<leader>pF", function()
+      builtin.find_files({
+        hidden = true,
+        no_ignore = true,
+      })
+    end, { desc = "Telescope: Find files (hidden)" })
+
+    vim.keymap.set("n", "<leader>ps", builtin.live_grep, { desc = "Telescope: Live grep" })
+
+    vim.keymap.set("n", "<leader>pS", function()
       builtin.live_grep({
         additional_args = function()
           return { "--hidden" }
         end,
       })
-    end, { desc = "Telescope: Live grep (including hidden)" })
+    end, { desc = "Telescope: Live grep (hidden)" })
   end,
 }
 
