@@ -5,37 +5,56 @@ local opts = {
     "nvim-treesitter/nvim-treesitter",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   },
-  config = function(_, opts)
+  config = function()
     local telescope = require("telescope")
+    local actions = require("telescope.actions")
+    local builtin = require("telescope.builtin")
 
     telescope.setup({
-      opts = opts,
       defaults = vim.tbl_extend("force", require("telescope.themes").get_ivy(), {
-        hidden = true,
-        file_ignore_patterns = { ".git", ".trash" },
-        mappings = { n = { ["q"] = require("telescope.actions").close } },
-        extensions = { fzf = {} },
+        file_ignore_patterns = {
+          "%.git/",
+          "%.trash/",
+        },
+        mappings = {
+          n = {
+            ["q"] = actions.close,
+          },
+        },
       }),
-    })
-    local builtin = require("telescope.builtin")
-    telescope.load_extension("fzf")
 
+      pickers = {
+        find_files = {
+          hidden = true,
+          no_ignore = true,
+        },
+      },
+
+      extensions = {
+        fzf = {
+          fuzzy = true,
+          override_generic_sorter = true,
+          override_file_sorter = true,
+          case_mode = "smart_case",
+        },
+      },
+    })
+
+    telescope.load_extension("fzf")
     vim.keymap.set(
       "n",
       "<leader><leader>",
       "<cmd>Telescope buffers<cr>",
       { desc = "Telescope: Current opened buffers" }
     )
-
-    vim.keymap.set("n", "<leader>pf", function()
-      builtin.find_files({ no_ignore = true })
-    end, { desc = "Telescope: [p]rocess [f]iles" })
-    vim.keymap.set(
-      "n",
-      "<leader>ps",
-      builtin.live_grep({ additional_args = { "--fixed-strings" } }),
-      { desc = "Telescope: [p]rocess grep [s]tring" }
-    )
+    vim.keymap.set("n", "<leader>pf", builtin.find_files, { desc = "Telescope: Find files (including hidden)" })
+    vim.keymap.set("n", "<leader>ps", function()
+      builtin.live_grep({
+        additional_args = function()
+          return { "--hidden" }
+        end,
+      })
+    end, { desc = "Telescope: Live grep (including hidden)" })
   end,
 }
 
