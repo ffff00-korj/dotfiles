@@ -7,18 +7,6 @@ font:
 		echo "JetBrains Mono Nerd Font is already installed"; \
 	fi
 
-.PHONY: autodev
-autodev:
-	@mkdir -p ~/.local/bin
-	@if [ -f ~/.local/bin/autodev ]; then \
-		echo "Updating autodev script..."; \
-	else \
-		echo "Installing autodev script..."; \
-	fi
-	@cp autodev.sh ~/.local/bin/autodev
-	@chmod +x ~/.local/bin/autodev
-	@echo "autodev script installed/updated successfully"
-
 .PHONY: alacritty
 alacritty:
 	@if ! brew list --cask alacritty >/dev/null 2>&1; then \
@@ -139,8 +127,8 @@ brew:
 
 .PHONY: aitools
 aitools:
-	@if ! npm ls -g @openai/codex >/dev/null @>&1; then \
-		echo "Installing @openio/codex..."; \
+	@if ! npm ls -g @openai/codex >/dev/null 2>&1; then \
+		echo "Installing @openai/codex..."; \
 		npm i -g @openai/codex; \
 	else \
 		echo "@openai/codex is already installed"; \
@@ -152,8 +140,8 @@ aitools:
 		echo "aichat is already installed"; \
 	fi
 
-.PHONY: startup
-startup:
+.PHONY: all
+all:
 	@echo "Starting setup process..."
 	@make brew
 	@make font
