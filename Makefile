@@ -139,6 +139,12 @@ brew:
 
 .PHONY: aitools
 aitools:
+	@if ! npm ls -g @openai/codex >/dev/null @>&1; then \
+		echo "Installing @openio/codex..."; \
+		npm i -g @openai/codex; \
+	else \
+		echo "@openai/codex is already installed"; \
+	fi
 	@if ! brew list aichat >/dev/null 2>&1; then \
 		echo "Installing aichat..."; \
 		brew install aichat; \
