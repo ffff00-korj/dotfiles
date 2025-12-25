@@ -139,12 +139,6 @@ brew:
 
 .PHONY: aitools
 aitools:
-	@if ! brew list opencode >/dev/null 2>&1; then \
-		echo "Installing opencode..."; \
-		brew install opencode; \
-	else \
-		echo "opencode is already installed"; \
-	fi
 	@if ! brew list aichat >/dev/null 2>&1; then \
 		echo "Installing aichat..."; \
 		brew install aichat; \
