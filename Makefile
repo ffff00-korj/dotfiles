@@ -140,6 +140,36 @@ aitools:
 		echo "aichat is already installed"; \
 	fi
 
+.PHONY: tiling
+tiling:
+	@if ! brew list koekeishiya/formulae/yabai >/dev/null 2>&1; then \
+		echo "Installing koekeishiya/formulae/yabai..."; \
+		brew install koekeishiya/formulae/yabai; \
+	else \
+		echo "koekeishiya/formulae/yabai is already installed"; \
+	fi
+
+	@if ! brew list koekeishiya/formulae/skhd >/dev/null 2>&1; then \
+		echo "Installing koekeishiya/formulae/skhd..."; \
+		brew install koekeishiya/formulae/skhd; \
+	else \
+		echo "koekeishiya/formulae/skhd is already installed"; \
+	fi
+
+	@mkdir -p ~/.config/yabai
+	@mkdir -p ~/.config/skhd
+
+	cp ./tiling/yabairc ~/.config/yabai/yabairc
+	cp ./tiling/skhdrc ~/.config/skhd/skhdrc
+
+	yabai --uninstall-service
+	yabai --install-service
+	yabai --start-service
+
+	skhd --uninstall-service
+	skhd --install-service
+	skhd --start-service
+
 .PHONY: all
 all:
 	@echo "Starting setup process..."
@@ -150,4 +180,5 @@ all:
 	@make tmux
 	@make zsh
 	@make aitools
+	@make tiling
 	@echo "Setup completed successfully! 🎉"
