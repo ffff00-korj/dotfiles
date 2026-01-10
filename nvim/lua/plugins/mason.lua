@@ -13,7 +13,6 @@ local opts = {
         ensure_installed = {
           "gopls",
           "delve",
-          "golangci-lint-langserver",
 
           "stylua",
           "buf",
