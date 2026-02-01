@@ -82,10 +82,9 @@ neovim:
 		fi \
 	done
 
-	@mkdir -p ~/.config
 	@if [ -d ./nvim ]; then \
-		rm -rf ~/.config/nvim; \
-		cp -r ./nvim ~/.config; \
+		mkdir -p ~/.config/nvim; \
+		rsync -a --delete ./nvim/ ~/.config/nvim/; \
 	else \
 		echo "Warning: nvim directory not found"; \
 	fi
