@@ -1,1 +1,3 @@
 .DS_Store
+
+nvim/lua/plugins/work_private.lua
