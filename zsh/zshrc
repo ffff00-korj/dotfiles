@@ -15,6 +15,13 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 plugins=(git sudo)
 source $ZSH/oh-my-zsh.sh
 
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - bash)"
+# autoactivate virtualenv in python projects
+eval "$(pyenv virtualenv-init -)"
+
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(~/.docker/completions $fpath)
 autoload -Uz compinit
