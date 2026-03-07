@@ -28,3 +28,12 @@ else
     chmod 600 ~/.worksetup
     echo "~/.worksetup file created"
 fi
+
+# load secret from pass
+load_secret() {
+    secret=$(pass "$1" 2>/dev/null) || {
+        echo "Error: Failed to load secret '$1'" >&2
+        return 1
+    }
+    echo -n "${secret%$'\n'}"
+}
