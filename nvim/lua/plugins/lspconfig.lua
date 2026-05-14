@@ -32,7 +32,14 @@ local opts = {
       },
       gopls = { capabilities = capabilities },
       html = { capabilities = capabilities },
-      buf_ls = { capabilities = capabilities },
+      buf_ls = {
+        capabilities = capabilities,
+        settings = {
+          buf_ls = {
+            proto_source = "vendor.protogen",
+          },
+        },
+      },
     }
     for server_name, config in pairs(servers) do
       vim.lsp.config[server_name] = config
