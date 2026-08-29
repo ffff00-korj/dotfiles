@@ -1,4 +1,4 @@
-return {
+local opts = {
   "folke/persistence.nvim",
   lazy = false,
   keys = {
@@ -26,3 +26,5 @@ return {
     })
   end,
 }
+
+return opts

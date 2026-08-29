@@ -12,6 +12,9 @@ local opts = {
     dependencies = "L3MON4D3/LuaSnip",
     version = "v0.*",
     opts = {
+      sources = {
+        default = { "lsp", "path", "snippets" },
+      },
       keymap = {
         preset = "super-tab",
         ["<C-n>"] = { "scroll_documentation_down" },

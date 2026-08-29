@@ -3,7 +3,10 @@ local opts = {
     "tpope/vim-fugitive",
     keys = {
       { "<leader>gs", vim.cmd.Git, { desc = "Figitive: [g]it [s]tatus" } },
-      { "<leader>gm", "<cmd>Gdiffsplit master<cr>", { desc = "Diffview: view diff current bracnh with master" } },
+      { "<leader>gP", "<cmd>Git push<cr>", { desc = "Figitive: [g]it [p]ush" } },
+      { "<leader>gp", "<cmd>Git pull<cr>", { desc = "Figitive: [g]it [p]ull" } },
+      { "<leader>gm", "<cmd>Gdiffsplit master<cr>", { desc = "Diffview: view diff current branch with master" } },
+      { "<leader>gM", "<cmd>Gdiffsplit main<cr>", { desc = "Diffview: view diff current branch with main" } },
     },
   },
   {
