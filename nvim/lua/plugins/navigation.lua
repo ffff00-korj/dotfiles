@@ -9,7 +9,32 @@ local opts = {
     event = "VeryLazy",
     cmd = "Trouble",
     opts = { signs = { error = "E", warning = "W", hint = "H", information = "I" } },
-    keys = { { "<leader>pt", "<cmd>Trouble diagnostics toggle focus=true filter.buf=0<cr>", { desc = "Trouble: [p]rocess [t]roubles" } } },
+    keys = {
+      {
+        "<leader>pt",
+        "<cmd>Trouble diagnostics toggle focus=false filter.buf=0<cr>",
+        { desc = "Trouble: [p]rocess [t]roubles" },
+      },
+      {
+        "<leader>pT",
+        "<cmd>Trouble diagnostics toggle focus=false<cr>",
+        { desc = "Trouble: [p]rocess [t]roubles" },
+      },
+      {
+        "]q",
+        function()
+          require("trouble").next({ skip_groups = true, jump = true })
+        end,
+        desc = "Trouble: Next item",
+      },
+      {
+        "[q",
+        function()
+          require("trouble").prev({ skip_groups = true, jump = true })
+        end,
+        desc = "Trouble: Previous item",
+      },
+    },
   },
   {
     "theprimeagen/harpoon",
