@@ -1,6 +1,16 @@
 return {
   "folke/persistence.nvim",
   lazy = false,
+  keys = {
+    {
+      "<leader>qd",
+      function()
+        require("persistence").stop()
+        vim.cmd("qa")
+      end,
+      desc = "Delete current session and quit",
+    },
+  },
   opts = {
     need = 0,
   },
