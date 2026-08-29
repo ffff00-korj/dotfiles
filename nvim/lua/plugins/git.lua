@@ -1,7 +1,10 @@
 local opts = {
   {
     "tpope/vim-fugitive",
-    keys = { { "<leader>gs", vim.cmd.Git, { desc = "Figitive: [g]it [s]tatus" } } },
+    keys = {
+      { "<leader>gs", vim.cmd.Git, { desc = "Figitive: [g]it [s]tatus" } },
+      { "<leader>gm", "<cmd>Gdiffsplit master<cr>", { desc = "Diffview: view diff current bracnh with master" } },
+    },
   },
   {
     "lewis6991/gitsigns.nvim",

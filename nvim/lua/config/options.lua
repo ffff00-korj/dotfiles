@@ -26,3 +26,6 @@ opt.updatetime = 50
 cmd("set keymap=russian-jcukenwin")
 cmd("set iminsert=0")
 cmd("set imsearch=0")
+
+vim.opt.diffopt:append("algorithm:histogram")
+vim.opt.diffopt:append("indent-heuristic")
