@@ -14,7 +14,9 @@ return {
 
       neotest.setup({
         adapters = {
-          require("neotest-go"),
+          require("neotest-go")({
+            dap_go_enabled = true,
+          }),
         },
         status = { virtual_text = true },
         output = { open_on_run = true },
@@ -27,6 +29,9 @@ return {
       keymap("n", "<leader>tr", function()
         neotest.run.run()
       end, { desc = "Run Nearest Test" })
+      keymap("n", "<leader>tR", function()
+        neotest.run.run({ strategy = "dap" })
+      end, { desc = "Run Nearest Test (debug mod)" })
       keymap("n", "<leader>tf", function()
         neotest.run.run(vim.fn.expand("%"))
       end, { desc = "Run Current File" })

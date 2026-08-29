@@ -12,6 +12,15 @@ local opts = {
       dap.continue()
     end, { desc = "Continue debugging" })
 
+    vim.keymap.set("n", "<F8>", function()
+      dap.terminate()
+      vim.notify("Debug session terminated", vim.log.levels.INFO)
+    end, { desc = "Terminate Debug session" })
+
+    vim.keymap.set("n", "<F9>", function()
+      dap.run_last()
+    end, { desc = "Debug last Go test" })
+
     vim.keymap.set("n", "<F6>", function()
       dap.repl.open()
     end, { desc = "Open REPL" })
