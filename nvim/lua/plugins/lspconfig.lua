@@ -30,7 +30,17 @@ local opts = {
         capabilities = capabilities,
         settings = { Lua = { diagnostics = { globals = { "vim" }, disable = { "missing-fields" } } } },
       },
-      gopls = { capabilities = capabilities },
+      gopls = {
+        capabilities = capabilities,
+        settings = {
+          gopls = {
+            gofumpt = true,
+            analyses = {
+              unusedparams = true,
+            },
+          },
+        },
+      },
       html = { capabilities = capabilities },
       buf_ls = {
         capabilities = capabilities,
