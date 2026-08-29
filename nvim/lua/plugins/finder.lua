@@ -62,6 +62,16 @@ local opts = {
         end,
       })
     end, { desc = "Telescope: Live grep (hidden)" })
+
+    vim.keymap.set("n", "<leader>prt", function()
+      builtin.lsp_references({
+        default_text = "test ",
+        prompt_title = "LSP Test References",
+        theme = "ivy",
+      })
+    end, {
+      desc = "LSP: Поиск ссылок только в тестах",
+    })
   end,
 }
 
