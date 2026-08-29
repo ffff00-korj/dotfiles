@@ -45,5 +45,11 @@ load_secret() {
     echo -n "${secret%$'\n'}"
 }
 
-# Now, typing just 'v' will launch Neovim and automatically restore your last session
-alias v="nvim -c 'lua require(\"persistence\").load()'"
+# Start Neovim and automatically restore the last session using 'v' or 'v .'
+v() {
+  if [ $# -eq 0 ] || [ "$1" = "." ]; then
+    nvim -c 'lua require("persistence").load()'
+  else
+    nvim "$@"
+  fi
+}
