@@ -26,3 +26,6 @@ opt.updatetime = 50
 cmd("set keymap=russian-jcukenwin")
 cmd("set iminsert=0")
 cmd("set imsearch=0")
+
+-- for sessions
+vim.o.sessionoptions = "buffers,curdir,tabpages,winsize,help,globals,folds,terminal"
