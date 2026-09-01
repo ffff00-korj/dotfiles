@@ -95,7 +95,7 @@ brew:
 
 .PHONY: ai-tools
 ai-tools:
-	@for pkg in codex aichat; do \
+	@for pkg in codex aichat llama.cpp; do \
 		if ! brew list $$pkg >/dev/null 2>&1; then \
 			echo "Installing $$pkg..."; \
 			brew install $$pkg; \
@@ -103,6 +103,10 @@ ai-tools:
 			echo "Warning: $$pkg is already installed"; \
 		fi \
 	done
+
+.PHONY: ai-tools-server
+ai-tools-server:
+	llama-server -hf sweepai/sweep-next-edit-0.5B --port 8000
 
 .PHONY: tiling
 tiling:
@@ -128,6 +132,7 @@ tiling:
 	@skhd --uninstall-service
 	@skhd --install-service
 	@skhd --start-service
+
 
 .PHONY: all
 all:
