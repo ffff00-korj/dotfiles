@@ -24,7 +24,7 @@ make all
 - Установка шрифта JetBrains Mono
 - Установка Alacritty
 - Настройка Neovim (с установкой зависимостей fd, rust, postgresql)
-- Настройка Tmux и дополнительных утилит
+- Настройка Tmux и дополнительных утилит (sesh, claude-code и др)
 - Установка Zsh и Oh My Zsh
 
 ### Отдельные команды установки
@@ -40,10 +40,9 @@ make alacritty
 ```bash
 make tmux
 ```
-- Устанавливает tmux, sesh, zoxide, fzf, opencode
+- Устанавливает tmux, sesh, zoxide, fzf, claude-code
 - Копирует конфигурацию tmux
 - Устанавливает TPM (Tmux Plugin Manager)
-- Копирует конфигурацию opencode
 
 3. **Neovim и зависимости**
 ```bash
@@ -66,4 +65,4 @@ make zsh
 * [JetBrains Mono Nerd Font](https://www.jetbrains.com/lp/mono)
 * tmux, zsh
 * Oh My Zsh
-* [OpenCode](https://opencode.ai)
+* [Claude-code](https://claude.ai/)

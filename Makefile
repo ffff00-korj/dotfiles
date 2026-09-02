@@ -25,7 +25,7 @@ alacritty:
 
 .PHONY: tmux
 tmux:
-	@for pkg in tmux sesh zoxide fzf; do \
+	@for pkg in tmux sesh zoxide fzf claude-code; do \
 		if ! brew list $$pkg >/dev/null 2>&1; then \
 			echo "Installing $$pkg..."; \
 			brew install $$pkg; \
