@@ -17,7 +17,7 @@
 ### Полная установка всех компонентов
 
 ```bash
-make startup
+make all
 ```
 
 Это выполнит установку и настройку всех компонентов:
@@ -49,7 +49,7 @@ make tmux
 ```bash
 make neovim
 ```
-- Устанавливает fd, rust, go, postgresql
+- Устанавливает neovim, fd, ripgrep, rust, node
 - Копирует конфигурацию Neovim в `~/.config/nvim`
 
 6. **Zsh**
@@ -63,6 +63,7 @@ make zsh
 
 * [Homebrew](https://brew.sh)
 * [Alacritty](https://alacritty.org)
-* [JetBrains Mono](https://www.jetbrains.com/lp/mono)
-* tmux, zsh, docker
+* [JetBrains Mono Nerd Font](https://www.jetbrains.com/lp/mono)
+* tmux, zsh
 * Oh My Zsh
+* [OpenCode](https://opencode.ai)

@@ -6,37 +6,37 @@
 
 - 🚀 **Lazy.nvim** — современный, быстрый и асинхронный менеджер плагинов.
 - 🧠 **Поддержка языков программирования**:
-  - Go 🐹
-  - Lua 🌙
-  - Bash 🖥️
+  - Go (gopls, delve)
+  - Lua (lua_ls)
+  - HTML
+  - Buf (buf_ls)
 - 🗂 **Oil.nvim** — продвинутый файловый менеджер в стиле интерфейса Neovim.
-- 🧪 **DAP (nvim-dap)** — встроенный отладчик с адаптерами для популярных языков.
+- 🧪 **Neotest** — тест-раннер с поддержкой DAP для Go.
 - 🔍 **Telescope.nvim** — мощный fuzzy finder для файлов, буферов, LSP, Git и многого другого.
 - 🔗 **Harpoon** — быстрый доступ к часто используемым файлам и буферам.
-- 🧰 **Интеграция с Git**:
-  - Просмотр диффов и истории (`gitsigns`, `telescope`).
-  - Удобные команды для Git прямо из Neovim.
+- 🧰 **Интеграция с Git** (`gitsigns`, `telescope`).
 - ✨ Эстетичный и минималистичный интерфейс с поддержкой тем и кастомизации.
-- 🛠️ Продвинутая настройка LSP, автодополнения и форматирования.
-- 🤖 Автокомплит и промпты с помощью AI (Ollama).
+- 🤖 **AI-автокомплит**: cursortab.nvim, opencode.nvim
 
 ## 📁 Установка
 
-1. Убедитесь, что установлен Neovim `>= 0.9`.
+1. Убедитесь, что установлен Neovim `>= 0.10`.
 2. Клонируйте репозиторий:
 
 ```bash
 git clone https://github.com/ffff00-korj/dotfiles.git
-mkdir -p ~/.config
-cp -r dotfiles/nvim ~/.config
+mkdir -p ~/.config/nvim
+cp -r dotfiles/nvim ~/.config/
 ```
 
 3. Запустите Neovim — плагины будут установлены автоматически благодаря `lazy.nvim`.
 
 ## 🧪 Зависимости
 
-- `neovim` (v0.9+)
+- `neovim` (v0.10+)
 - `git`
-- `node` и `npm` (для JavaScript и некоторых LSP)
-- `go` (для Go)
-- **Обязательно** установить `fd` — для корректной работы `telescope`.
+- `node` и `npm`
+- `go` (для Go LSP и тестов)
+- `fd` (для telescope)
+- `ripgrep` (для live_grep)
+- `rust` (для rust-analyzer, опционально)
