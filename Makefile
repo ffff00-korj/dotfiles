@@ -108,32 +108,6 @@ ai-tools:
 ai-tools-server:
 	llama-server -hf sweepai/sweep-next-edit-0.5B --port 8000
 
-.PHONY: tiling
-tiling:
-	@for pkg in koekeishiya/formulae/yabai koekeishiya/formulae/skhd; do \
-		if ! brew list $$pkg >/dev/null 2>&1; then \
-			echo "Installing $$pkg..."; \
-			brew install $$pkg; \
-		else \
-			echo "Warning: $$pkg is already installed"; \
-		fi \
-	done
-
-	@mkdir -p ~/.config/yabai
-	@mkdir -p ~/.config/skhd
-
-	@cp ./tiling/yabairc ~/.config/yabai/yabairc
-	@cp ./tiling/skhdrc ~/.config/skhd/skhdrc
-
-	@yabai --uninstall-service
-	@yabai --install-service
-	@yabai --start-service
-
-	@skhd --uninstall-service
-	@skhd --install-service
-	@skhd --start-service
-
-
 .PHONY: all
 all:
 	@echo "Starting setup process..."
@@ -144,5 +118,4 @@ all:
 	@make tmux
 	@make zsh
 	@make ai-tools
-	@make tiling
 	@echo "Setup completed successfully! 🎉"
