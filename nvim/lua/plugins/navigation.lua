@@ -1,4 +1,4 @@
-local opts = {
+return {
   {
     "mbbill/undotree",
     event = "VeryLazy",
@@ -65,5 +65,3 @@ local opts = {
     end,
   },
 }
-
-return opts

@@ -1,4 +1,4 @@
-local opts = {
+return {
   "igorlfs/nvim-dap-view",
   config = function()
     local dap = require("dap")
@@ -25,5 +25,3 @@ local opts = {
     vim.keymap.set("n", "<leader>Du", "<cmd>DapViewToggle<cr>", { desc = "DAP: ui toggle" })
   end,
 }
-
-return opts

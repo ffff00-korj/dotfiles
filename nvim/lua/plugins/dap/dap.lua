@@ -1,4 +1,4 @@
-local opts = {
+return {
   "mfussenegger/nvim-dap",
   dependencies = {
     "theHamsta/nvim-dap-virtual-text",
@@ -55,5 +55,3 @@ local opts = {
     })
   end,
 }
-
-return opts

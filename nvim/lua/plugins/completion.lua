@@ -1,4 +1,4 @@
-local opts = {
+return {
   { "jiangmiao/auto-pairs" },
   { "tpope/vim-surround" },
   {
@@ -34,5 +34,3 @@ local opts = {
     },
   },
 }
-
-return opts

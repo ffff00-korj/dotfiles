@@ -1,4 +1,4 @@
-local opts = {
+return {
   {
     "tpope/vim-fugitive",
     keys = {
@@ -28,5 +28,3 @@ local opts = {
     end,
   },
 }
-
-return opts

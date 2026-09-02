@@ -1,4 +1,4 @@
-local opts = {
+return {
   {
     "williamboman/mason.nvim",
     cmd = "Mason",
@@ -22,5 +22,3 @@ local opts = {
     end,
   },
 }
-
-return opts

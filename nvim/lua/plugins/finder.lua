@@ -1,4 +1,4 @@
-local opts = {
+return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
     "nvim-lua/plenary.nvim",
@@ -74,5 +74,3 @@ local opts = {
     })
   end,
 }
-
-return opts

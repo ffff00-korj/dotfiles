@@ -1,8 +1,6 @@
-local plugins = {
+return {
   require("plugins.dap.dap"),
   require("plugins.dap.dapui"),
   require("plugins.dap.dapgo"),
   require("plugins.dap.dapvirtualtext"),
 }
-
-return plugins

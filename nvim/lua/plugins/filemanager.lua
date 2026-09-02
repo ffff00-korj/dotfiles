@@ -1,4 +1,4 @@
-local opts = {
+return {
   "stevearc/oil.nvim",
   lazy = false,
   keys = {
@@ -25,5 +25,3 @@ local opts = {
     })
   end,
 }
-
-return opts

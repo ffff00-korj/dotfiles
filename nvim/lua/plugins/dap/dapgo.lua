@@ -1,4 +1,4 @@
-local opts = {
+return {
   "leoluz/nvim-dap-go",
   config = function()
     require("dap-go").setup({
@@ -73,5 +73,3 @@ local opts = {
     }
   end,
 }
-
-return opts

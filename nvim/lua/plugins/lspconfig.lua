@@ -6,7 +6,7 @@ local function format()
   end
 end
 
-local opts = {
+return {
   "neovim/nvim-lspconfig",
   dependencies = {
     "williamboman/mason.nvim",
@@ -59,5 +59,3 @@ local opts = {
     vim.keymap.set("n", "<F3>", format, { desc = "Format current buffer" })
   end,
 }
-
-return opts

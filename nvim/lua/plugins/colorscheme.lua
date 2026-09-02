@@ -1,4 +1,4 @@
-local opts = {
+return {
   {
     "wnkz/monoglow.nvim",
     lazy = false,
@@ -49,5 +49,3 @@ local opts = {
     end,
   },
 }
-
-return opts
