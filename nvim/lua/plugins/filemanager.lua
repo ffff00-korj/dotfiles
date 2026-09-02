@@ -21,7 +21,7 @@ local opts = {
         ["<M-h>"] = "actions.select_split",
       },
       win_options = { winbar = "%{v:lua.CustomOilBar()}" },
-      view_options = { show_hidden = true, compact = true },
+      view_options = { show_hidden = true },
     })
   end,
 }
