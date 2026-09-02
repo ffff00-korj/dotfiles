@@ -13,6 +13,7 @@ return {
         ensure_installed = {
           "gopls",
           "delve",
+          "gofumpt",
 
           "stylua",
           "buf",
